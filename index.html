@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle Flow Studio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    
+    <div class="studio-container">
+        <button class="panel-toggle">
+            <i class="fas fa-sliders-h"></i>
+        </button>
+
+        <div class="control-panel">
+            <div class="panel-header">
+                <h1>Particle Flow Studio</h1>
+            </div>
+
+            <div class="control-section">
+                <h2 class="section-title">Presets</h2>
+                <select id="presets">
+                    <option value="default">Default Flow</option>
+                    <option value="galaxy">Cosmic Swirl</option>
+                    <option value="chaos">Chaos Theory</option>
+                    <option value="minimal">Minimal Drift</option>
+                </select>
+            </div>
+
+            <div class="control-section">
+                <h2 class="section-title">Particle Properties</h2>
+                <div class="control-group">
+                    <label>Particle Count</label>
+                    <input type="range" id="particleCount" min="50" max="1000" value="200">
+                </div>
+                <div class="control-group">
+                    <label>Particle Size</label>
+                    <input type="range" id="particleSize" min="1" max="20" value="3">
+                </div>
+                <div class="control-group">
+                    <label>Movement Speed</label>
+                    <input type="range" id="speed" min="0.1" max="5" step="0.1" value="1">
+                </div>
+            </div>
+
+            <div class="control-section">
+                <h2 class="section-title">Visual Effects</h2>
+                <div class="control-group">
+                    <label>Connection Range</label>
+                    <input type="range" id="connectionRadius" min="50" max="300" value="100">
+                </div>
+                <div class="control-group">
+                    <label>Particle Shape</label>
+                    <select id="particleShape">
+                        <option value="circle">Circle</option>
+                        <option value="square">Square</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="star">Star</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>Color Scheme</label>
+                    <select id="colorScheme">
+                        <option value="blue">Azure Flow</option>
+                        <option value="purple">Cosmic Purple</option>
+                        <option value="green">Matrix Green</option>
+                        <option value="rainbow">Rainbow Spectrum</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-section">
+                <h2 class="section-title">Advanced Effects</h2>
+                <div class="control-group">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="enableGlow">
+                        <label>Glow Effect</label>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="enablePulse">
+                        <label>Pulse Effect</label>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="enablePhysics">
+                        <label>Physics</label>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label>Gravity Force</label>
+                    <input type="range" id="gravityForce" min="0" max="1" step="0.1" value="0">
+                </div>
+                <div class="control-group">
+                    <label>Wind Force</label>
+                    <input type="range" id="windForce" min="0" max="1" step="0.1" value="0">
+                </div>
+            </div>
+
+            <div class="control-section">
+                <h2 class="section-title">Behavior</h2>
+                <div class="control-group">
+                    <label>Movement Pattern</label>
+                    <select id="behavior">
+                        <option value="normal">Natural Flow</option>
+                        <option value="attract">Attraction</option>
+                        <option value="repel">Repulsion</option>
+                        <option value="swarm">Swarm</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>Mouse Interaction</label>
+                    <select id="mouseInteraction">
+                        <option value="none">None</option>
+                        <option value="attract">Attract</option>
+                        <option value="repel">Repel</option>
+                        <option value="create">Create</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-section">
+                <h2 class="section-title">Motion Controls</h2>
+                <div class="control-group">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="enableMotion">
+                        <label>Enable Motion Controls</label>
+                    </div>
+                    <label>Motion Sensitivity</label>
+                    <input type="range" id="motionSensitivity" min="0.1" max="3" step="0.1" value="1.5">
+                </div>
+            </div>
+
+            <div class="control-section">
+                <h2 class="section-title">Effects</h2>
+                <div class="control-group">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="trail">
+                        <label>Enable Trails</label>
+                    </div>
+                    <input type="range" id="trailLength" min="0.1" max="1" step="0.1" value="0.1">
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button id="saveConfig">Save Config</button>
+                <button id="loadConfig" class="preset-button">Load Config</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.panel-toggle').addEventListener('click', () => {
+            document.querySelector('.control-panel').classList.toggle('active');
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

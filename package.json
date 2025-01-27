@@ -1,0 +1,12 @@
+{
+  "name": "particle-flow-studio",
+  "version": "1.0.0",
+  "description": "Interactive Particle Flow Animation Studio",
+  "scripts": {
+    "start": "serve",
+    "build": "echo 'No build step required'"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}
